@@ -1,0 +1,31 @@
+{
+  "reconstruction": {
+    "total": 10.488607788085938,
+    "recon": 0.11391718834638595,
+    "kl": 0.5890368497371674,
+    "rhythm": 17.261698455810546
+  },
+  "transfer": {
+    "pitch_kl_div": 3.2098633303807826,
+    "rhythm_density_content": 0.9817464192708333,
+    "rhythm_density_style": 0.9821370442708334,
+    "rhythm_density_transfer": 0.99853515625,
+    "rhythm_density_dist": 0.018448893229166666,
+    "rhythm_entropy_transfer": 0.0030279256182502144
+  },
+  "fooling": {
+    "fooling_rate": 0.5880729166666666,
+    "content_accuracy": 0.41192708333333333,
+    "per_genre": {
+      "jazz": 0.6702508960573477,
+      "pop": 0.5078237595223389
+    },
+    "n_samples": 19200,
+    "cross_genre_only": true,
+    "threshold": 0.5,
+    "n_cross_genre_pairs": 19200,
+    "n_same_genre_pairs": 0,
+    "random_seed": 42,
+    "n_repeats": 5
+  }
+}

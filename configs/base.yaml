@@ -1,0 +1,33 @@
+model:
+  input_dim: 89
+  hidden_dim: 256
+  z_p_dim: 64
+  z_r_dim: 64
+
+training:
+  batch_size: 128
+  lr: 0.0002            # 降低学习率，缓解best epoch过早后性能回退
+  beta_start: 0.0001    # 从极小值开始，前期几乎不施加KL压力
+  beta_end: 0.03        # 进一步降低KL终值，减少潜变量过度收缩
+  beta_epochs: 30
+  gamma: 0.6
+  swap_recon_ratio: 0.0  # 关闭swap重建项，避免“换风格还原原样”的目标冲突
+  style_cls_weight: 0.2  # 降低辅助监督强度，减少对内容保持的破坏
+  transfer_style_weight: 0.2  # 轻量监督：约束 transferred 更接近目标风格类别
+  adv_style_weight: 0.15  # 对抗去风格：让 z_p 不携带 style 线索
+  content_consistency_weight: 0.2  # 保持 transferred 的内容 latent 接近源内容
+  orth_weight: 0.01  # z_p / z_r 协方差正交约束
+  grl_lambda: 1.0
+  early_stopping_metric: val/total  # 选模型时同时考虑重建与风格相关损失
+  early_stopping_patience: 0  # 关闭早停，确保swap阶段有足够训练时长
+  early_stopping_min_delta: 0.0
+  epochs: 100
+  pos_weight: 5.0
+  swap_warmup_epochs: 10  # 提前进入有效swap训练，减少“只学重建”的时间窗
+  use_amp: true
+
+data:
+  seq_len: 32
+  fs: 12
+  pitch_low: 21
+  pitch_high: 109

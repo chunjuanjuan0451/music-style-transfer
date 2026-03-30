@@ -1,0 +1,15 @@
+{
+  "fooling_rate": 0.5880729166666666,
+  "content_accuracy": 0.41192708333333333,
+  "per_genre": {
+    "jazz": 0.6702508960573477,
+    "pop": 0.5078237595223389
+  },
+  "n_samples": 19200,
+  "cross_genre_only": true,
+  "threshold": 0.5,
+  "n_cross_genre_pairs": 19200,
+  "n_same_genre_pairs": 0,
+  "random_seed": 42,
+  "n_repeats": 5
+}
